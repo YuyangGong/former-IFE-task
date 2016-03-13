@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>center</title>    
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<link rel="shortcut icon" href="..\img\favicon.ico">
+<link rel="stylesheet" href="..\css\task0001_center.css">   
+</head>
+<body>
+    <!--居中的方法一 使用center标签进行水平居中，可以实现标签内块级元素和行内元素都水平居中，但此方法样式与结构未分离，且目前已被CSS标准弃用,故不推荐-->
+    <center>
+           <div class="centerDiv">
+              DIV内的文字和图片也居中了<br/>
+              <img src="..\img\testPic.png">
+              <div class="innerDiv">内部的DIV以及DIV内的文本也居中了</div>
+           </div>
+    </center>
+    <!--居中的方法二 设置margin-left和margin-right为auto可以实现水平居中,但只有设置这俩个属性的元素会居中，其子元素不会居中-->
+    <div class='centerDiv center2'>
+        只有本身设置了margin-left margin-right的DIV居中了，DIV内的文字和图片并没有居中<br/>
+        <img src="..\img\testPic.png">
+        <div class="innerDiv">内部的DIV没有居中，因为margin没有继承性</div>
+    </div>
+    <!--居中的方法三 设置元素的text-align为center可以实现其内行级元素的居中，但无法实现其内块级元素的居中，且具有继承性-->
+    <div class="centerDiv center3">
+         文本和图片居中了<br/>
+         <img src="..\img\testPic.png">
+         <div class="innerDiv">内部块级元素未居中,但其内文本照常居中，具有继承性
+         </div>
+    </div>
+    <!--居中的方法四 单行文本可以通过设置行高进行垂直居中,缺点是：1、只能进行单行文本垂直居中。2、需要手动计算-->
+    <div class="centerDiv center4">
+        通过计算: 将 div的height 减去 文字的font-size得到的值设置为line-height。本例中DIV高度300px；文字大小16px;即可以将行高设置为284px;
+    </div>
+    <!--居中的方法五 设置负margin进行垂直居中 将父元素的position设置为relative 子元素的position设置为absolute 再将子元素的top和left都设置为50% 将margin-left和margin-right设置为负的高度的一半和负的宽度的一半-->
+    <div class="centerDiv center5">
+        <div class="innerDiv center5_inner"></div>
+    </div>
+    <!--居中的方法六 将父元素的position设置为relative 子元素的position设置为absolute，top left right bottom都设置为0，margin设置为auto,缺点是子元素脱离了正常流-->
+    <div class="centerDiv center5">
+        <div class="innerDiv center6_inner"></div>
+    </div>
+</body>
+</html>
